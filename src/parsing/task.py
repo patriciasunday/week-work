@@ -1,11 +1,20 @@
 # purpose: defines a task and a list of tasks, providing relevant methods to manipulate them
 
-# define classes to represent a task and a list of tasks
 class Task:
+    '''
+    Represents a task
+    Attributes:
+        name (str): The name of the task.
+    '''
     def __init__(self, name):
         self.name = name
 
 class TaskList:
+    '''
+    Represents a list of tasks.
+    Attributes:
+        tasks (list): A list of Task objects.
+    '''
     def __init__(self, tasks=None):
         '''
         Initialize a TaskList object.
