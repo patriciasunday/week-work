@@ -4,10 +4,18 @@ class Task:
     '''
     Represents a task
     Attributes:
+        id (int): The unique identifier for the task.
         name (str): The name of the task.
+        order (int): The order of the task relative to others.
     '''
-    def __init__(self, name):
+
+    _id_increment = 0  # Class variable to auto increment task IDs
+    def __init__(self, name, order=None):
+        Task._id_increment += 1
+        self.id = Task._id_increment
+        
         self.name = name
+        self.order = order
 
 class TaskList:
     '''
@@ -22,14 +30,3 @@ class TaskList:
         :param tasks: Optional list of Task objects. Set to an empty list if not provided.
         '''
         self.tasks = tasks if tasks is not None else []
-
-    def move_task(self, task, new_position):
-        '''
-        Move a task to a new position in the task list.
-
-        :param task: The Task object to move.
-        :param: new_position: The new position (1-based index) to move the task to.
-        '''
-        while task in self.tasks:
-            self.tasks.remove(task)
-        self.tasks.insert(new_position-1, task)
