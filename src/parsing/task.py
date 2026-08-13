@@ -3,6 +3,7 @@
 class Task:
     '''
     Represents a task
+
     Attributes:
         id (int): The unique identifier for the task.
         name (str): The name of the task.
@@ -11,6 +12,10 @@ class Task:
 
     _id_increment = 0  # Class variable to auto increment task IDs
     def __init__(self, name, order=None):
+        """
+        Initialize a Task object.
+        
+        """
         Task._id_increment += 1
         self.id = Task._id_increment
         
@@ -20,6 +25,7 @@ class Task:
 class TaskList:
     '''
     Represents a list of tasks.
+
     Attributes:
         tasks (list): A list of Task objects.
     '''
@@ -27,6 +33,7 @@ class TaskList:
         '''
         Initialize a TaskList object.
         
-        :param tasks: Optional list of Task objects. Set to an empty list if not provided.
+        Args:
+           tasks: Optional list of Task objects. Set to an empty list if not provided.
         '''
         self.tasks = tasks if tasks is not None else []

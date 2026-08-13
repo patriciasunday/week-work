@@ -1,11 +1,12 @@
-# purpose: reads a list of tasks from user input to builds a TaskList and Task objects
-import task
+# purpose: reads a list of tasks from user input to builds TaskList and Task objects
+from src.parsing import task
 
 # encapsulating reading logic into a class allows for future expansion of reading logic 
 # e.g. reading from a file, etc.
 class TaskReader:
     '''
     Represents a tool that reads tasks from user input and builds a TaskList.
+
     Attributes:
         user_tasklist (TaskList): A TaskList object containing tasks read from user input.
     '''
@@ -14,7 +15,11 @@ class TaskReader:
         self.user_tasklist = task.TaskList()
 
     def read_from_cli(self):
-        '''Read tasks from user input via cli and build a TaskList object.'''
+        '''Reads tasks from user input via cli and builds a TaskList object.
+        
+        Returns:
+            A Tasklist object containing Tasks read from user input.
+        '''
         # prompt user for Tasks + add to TaskList
         print("Welcome User!\n")
         while True:
@@ -26,13 +31,4 @@ class TaskReader:
                 current_task = task.Task(choice)
                 self.user_tasklist.tasks.append(current_task) 
 
-        # print/test confirm task list
-        if len(self.user_tasklist.tasks) > 0:
-            print("\nTasks for the week:")
-            i = 1
-            for current_task in self.user_tasklist.tasks:
-                print("Task", i, ":", current_task.name)
-                i += 1
-            del i
-        else:
-            print("No tasks for the week!")
+        return self.user_tasklist
