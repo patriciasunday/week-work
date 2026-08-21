@@ -10,15 +10,17 @@ class Task:
         order (int): The order of the task relative to others.
     '''
 
-    _id_increment = 0  # Class variable to auto increment task IDs
-    def __init__(self, name, order=None):
+    _id_increment = 0  # Class variable to auto increment task IDs 
+    def __init__(self, name, id=None, order=None):
         """
         Initialize a Task object.
         
         """
-        Task._id_increment += 1
-        self.id = Task._id_increment
-        
+        if id is None:
+            Task._id_increment += 1
+            self.id = Task._id_increment
+        else:
+            self.id = id
         self.name = name
         self.order = order
 

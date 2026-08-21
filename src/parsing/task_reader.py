@@ -7,6 +7,10 @@ class TaskReader:
     '''
     Represents a tool that reads tasks from user input and builds a TaskList.
 
+    Note: Meant to be reused across multiple read_from_* calls (e.g. read_from_cli, read_from_file) 
+    so that tasks from different sources accumulate into the same TaskList. New read_from_*
+    methods should append to self.user_tasklist instead of replacing it.
+
     Attributes:
         user_tasklist (TaskList): A TaskList object containing tasks read from user input.
     '''

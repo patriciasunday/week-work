@@ -1,12 +1,12 @@
 # purpose: converts a list of tasks into a certain format to be processed by an LLM
 import json
 
-def convert_to_json(tlist):
+def convert_to_json(tlist: object) -> str:
     '''
     Converts a TaskList object into JSON format.
     
     Args:
-      list: A TaskList object to be converted.
+      tlist: A TaskList object to be converted.
     Returns:
       A JSON string representing the TaskList object.
     '''
